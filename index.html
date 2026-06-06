@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>一年级20以内加减法测试卡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app" class="app" aria-label="20以内加减法练习">
+    <header class="top-bar">
+      <div>
+        <h1>一年级20以内加减法</h1>
+        <p class="subtitle">点击屏幕进入下一题</p>
+      </div>
+      <div class="timer" aria-label="用时">用时 <span id="elapsedTime">00:00</span></div>
+    </header>
+
+    <section class="settings" aria-label="出题设置">
+      <label>
+        <span>题型</span>
+        <select id="modeSelect">
+          <option value="mixed">加减混合</option>
+          <option value="addition">只做加法</option>
+          <option value="subtraction">只做减法</option>
+        </select>
+      </label>
+
+      <label>
+        <span>题量</span>
+        <select id="countSelect">
+          <option value="10">10 题</option>
+          <option value="20" selected>20 题</option>
+          <option value="30">30 题</option>
+          <option value="50">50 题</option>
+        </select>
+      </label>
+
+      <button id="restartBtn" class="small-button" type="button">重新开始</button>
+    </section>
+
+    <section id="practiceView" class="practice-view" aria-live="polite">
+      <div class="progress">
+        第 <span id="currentNumber">1</span> / <span id="totalCount">20</span> 题
+      </div>
+
+      <button id="questionCard" class="question-card" type="button" aria-label="当前题目，点击进入下一题">
+        <span id="questionText" class="question-text">8 + 7 = ?</span>
+      </button>
+
+      <p class="tap-hint">点一下空白处或题卡，显示下一题</p>
+    </section>
+
+    <section id="finishView" class="finish-view hidden" aria-live="polite">
+      <h2>完成啦</h2>
+      <p class="finish-time">总用时 <span id="finalTime">00:00</span></p>
+      <button id="againBtn" class="primary-button" type="button">再做一组</button>
+
+      <details class="answers-box">
+        <summary>查看本组答案</summary>
+        <ol id="answerList" class="answer-list"></ol>
+      </details>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

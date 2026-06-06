@@ -1,0 +1,252 @@
+:root {
+  --ink: #243042;
+  --muted: #6b7280;
+  --line: #d7e5f5;
+  --paper: #ffffff;
+  --bg-top: #eef7ff;
+  --bg-bottom: #fffdf7;
+  --accent: #2f80ed;
+  --accent-dark: #1769d2;
+  --accent-soft: #e8f2ff;
+  --sunny: #fff1a8;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.app {
+  width: min(100%, 760px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: max(18px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+}
+
+.top-bar {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.timer {
+  flex: none;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.settings {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  align-items: end;
+  margin-top: 22px;
+}
+
+label {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+select,
+.small-button,
+.primary-button {
+  min-height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+select {
+  width: 100%;
+  padding: 0 10px;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.small-button,
+.primary-button {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.small-button {
+  padding: 0 14px;
+}
+
+.primary-button {
+  width: min(100%, 220px);
+  padding: 0 20px;
+  font-weight: 700;
+}
+
+.practice-view {
+  display: flex;
+  min-height: calc(100vh - 170px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 0 18px;
+}
+
+.progress {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.question-card {
+  width: 100%;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 18px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 3px solid #b9dcff;
+  border-radius: 24px;
+  box-shadow: 0 16px 42px rgba(47, 128, 237, 0.14);
+  cursor: pointer;
+}
+
+.question-card:active {
+  transform: scale(0.99);
+  border-color: var(--accent);
+}
+
+.question-text {
+  font-size: clamp(52px, 14vw, 98px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.tap-hint {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.finish-view {
+  margin-top: 38px;
+  padding: 28px 18px;
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 12px 34px rgba(31, 41, 55, 0.08);
+}
+
+.finish-view h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.finish-time {
+  margin: 10px 0 22px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.answers-box {
+  margin-top: 26px;
+  text-align: left;
+  border-top: 1px solid var(--line);
+}
+
+.answers-box summary {
+  padding: 16px 0 10px;
+  color: var(--accent-dark);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.answer-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+  margin: 0;
+  padding-left: 24px;
+  color: #374151;
+  font-size: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .app {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .top-bar {
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .settings {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .small-button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .question-card {
+    min-height: 238px;
+  }
+}
+
+@media (max-width: 360px) {
+  .settings {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-list {
+    grid-template-columns: 1fr;
+  }
+}
