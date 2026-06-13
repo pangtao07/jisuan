@@ -12,6 +12,7 @@ const totalCount = document.getElementById("totalCount");
 const elapsedTime = document.getElementById("elapsedTime");
 const finalTime = document.getElementById("finalTime");
 const answerList = document.getElementById("answerList");
+const MAX_NUMBER = 100;
 
 let questions = [];
 let currentIndex = 0;
@@ -32,13 +33,13 @@ function shuffle(items) {
   return copied;
 }
 
-// 构建全部合法算式，确保加法不超过20、减法不小于0。
+// 构建全部合法算式，确保加法不超过100、减法不小于0。
 function buildProblemPool(mode) {
   const problems = [];
 
   if (mode === "mixed" || mode === "addition") {
-    for (let left = 0; left <= 20; left += 1) {
-      for (let right = 0; right <= 20 - left; right += 1) {
+    for (let left = 0; left <= MAX_NUMBER; left += 1) {
+      for (let right = 0; right <= MAX_NUMBER - left; right += 1) {
         problems.push({
           left,
           right,
@@ -50,7 +51,7 @@ function buildProblemPool(mode) {
   }
 
   if (mode === "mixed" || mode === "subtraction") {
-    for (let left = 0; left <= 20; left += 1) {
+    for (let left = 0; left <= MAX_NUMBER; left += 1) {
       for (let right = 0; right <= left; right += 1) {
         problems.push({
           left,
